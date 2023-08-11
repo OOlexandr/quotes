@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from .forms import RegisterForm, LoginForm
+from django.urls import reverse_lazy
 
 def signupuser(request):
     if request.user.is_authenticated:
